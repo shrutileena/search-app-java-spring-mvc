@@ -16,6 +16,15 @@ public class Student {
 	private List<String> courses;
 	private String gender;
 	private String type;
+	private Address address;
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public String getName() {
 		return name;
@@ -66,12 +75,7 @@ public class Student {
 		this.type = type;
 	}
 
-	public Student() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Student(String name, Long id, Date dob, List<String> courses, String gender, String type) {
+	public Student(String name, Long id, Date dob, List<String> courses, String gender, String type, Address address) {
 		super();
 		this.name = name;
 		this.id = id;
@@ -79,12 +83,18 @@ public class Student {
 		this.courses = courses;
 		this.gender = gender;
 		this.type = type;
+		this.address = address;
+	}
+
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
 		return "Student [name=" + name + ", id=" + id + ", dob=" + dob + ", courses=" + courses + ", gender=" + gender
-				+ ", type=" + type + "]";
+				+ ", type=" + type + ", address=" + address + "]";
 	}
 
 }

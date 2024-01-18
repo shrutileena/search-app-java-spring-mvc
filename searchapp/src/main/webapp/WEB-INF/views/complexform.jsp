@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +25,11 @@
 					<div class="card-body py-5">
 
 						<h3 class="text-center text-black">Complex form</h3>
+
+						<!-- using spring form taglib we can print the error occurring in controller -->
+						<div class="alert alert-danger" role="alert">
+							<form:errors path="student.*"></form:errors>
+						</div>
 
 						<form action="handle" class="m-2 p-2" method="post">
 							<div class="form-group mt-2">
@@ -71,8 +77,23 @@
 									<option value="normalstudent">Normal Student</option>
 								</select>
 							</div>
+							<div class="card mt-2">
+								<div class="card-body">
+									<p>Your address</p>
+									<div class="form-group mt-2">
+										<label for="inputStreet">Your Street</label> <input
+											name="address.street" type="text" class="form-control"
+											placeholder="Enter street">
+									</div>
+									<div class="form-group mt-2">
+										<label for="inputCity">Your City</label> <input
+											name="address.city" type="text" class="form-control"
+											placeholder="Enter city">
+									</div>
+								</div>
+							</div>
 							<div class="container mt-5 text-center">
-							<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary">Submit</button>
 							</div>
 						</form>
 
