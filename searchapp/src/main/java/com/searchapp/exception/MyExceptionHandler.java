@@ -1,34 +1,15 @@
-package com.searchapp.controller;
+package com.searchapp.exception;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@Controller
-public class PathVariableController {
-
-	@RequestMapping("/user/{userid}/{name}")
-	public String gerUserDetails(@PathVariable("userid") int userid, @PathVariable("name") String name) {
-		System.out.println(userid);
-		System.out.println(name);
-		Integer.parseInt(name);
-//		String s = null;
-//		System.out.println(s.charAt(0));
-		return "home";
-	}
+@ControllerAdvice
+public class MyExceptionHandler {
 	
-//	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-//	@ExceptionHandler({NullPointerException.class, NumberFormatException.class})
-//	public String exceptionHandlerNull(Model model) {
-//		model.addAttribute("exception", "exception has occurred");
-//		return "nullpage";
-//	}
-	
-	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler(value = NullPointerException.class)
 	public String exceptionHandlerNull(Model model) {
 		model.addAttribute("exception", "Null pointer exception has occurred");

@@ -4,27 +4,21 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
-public class PathVariableController {
+public class ExceptionHandlerController {
 
-	@RequestMapping("/user/{userid}/{name}")
-	public String gerUserDetails(@PathVariable("userid") int userid, @PathVariable("name") String name) {
-		System.out.println(userid);
-		System.out.println(name);
-		Integer.parseInt(name);
-//		String s = null;
-//		System.out.println(s.charAt(0));
-		return "home";
+	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+	@ExceptionHandler({NullPointerException.class, NumberFormatException.class})
+	public String exceptionHandlerNull() {
+		return "nullpage";
 	}
 	
 //	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-//	@ExceptionHandler({NullPointerException.class, NumberFormatException.class})
-//	public String exceptionHandlerNull(Model model) {
-//		model.addAttribute("exception", "exception has occurred");
+//	@ExceptionHandler(value = Exception.class)
+//	public String exception() {
 //		return "nullpage";
 //	}
 	
@@ -48,5 +42,4 @@ public class PathVariableController {
 		model.addAttribute("exception", "Exception has occurred");
 		return "nullpage";
 	}
-	
 }
