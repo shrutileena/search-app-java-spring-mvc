@@ -25,4 +25,9 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 
+	<bean
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		name="multipartResolver">
+	</bean>
+
 </beans>
