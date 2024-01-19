@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- <%@page isELIgnored="false" %> --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +16,13 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 	crossorigin="anonymous"></script>
+
+<link href="<c:url value="/resources/css/style.css"></c:url>">
+<script src="<c:url value="/resources/js/script.js"></c:url>"></script>
+
 </head>
 <body>
+	<img alt="image" src='<c:url value="/resources/image/java2.jpg"></c:url>'>
 	<div class="container">
 		<div class="card mx-auto mt-5 bg-secondary" style="width: 80%;">
 			<div class="card-body py-5">
